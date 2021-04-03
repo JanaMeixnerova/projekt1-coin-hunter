@@ -73,7 +73,7 @@ function novaMince() {
 	minceX = Math.round(Math.random()* (window.innerWidth - minceSirka));
 	minceY = Math.round(Math.random()* (window.innerHeight - minceVyska));
 	mince.style.left = minceX + "px";
-	mince.style.left = minceY + "px";
+	mince.style.top = minceY + "px";
 }
 
 // tato funkce se zavolá při stisku klávesy
@@ -94,7 +94,7 @@ function priStiskuKlavesy (udalost){
 
 	// šipka vlevo
 	if (udalost.key === 'ArrowLeft'){
-		panacekX -=10;
+		panacekX -= 10;
 		if(panacekX < 0){
 		panacekX = 0; 
 		}
@@ -104,17 +104,16 @@ function priStiskuKlavesy (udalost){
 	// šipka vpravo
 	if (udalost.key === 'ArrowRight'){
 		panacekX += 10;
-		if(panacekX+ panacekSirka > window.innerWidth){
+		if(panacekX + panacekSirka > window.innerWidth){
 			panacekX= window.inneWidth - panacekSirka;
 		}
-
 	panacek.src = "obrazky/panacek-vpravo.png"; 	
 	}
 
 	// šipka nahoru
 
 	if(udalost.key === "ArrowUp"){
-		panacekY-= 10;
+		panacekY -= 10;
 		if(panacekY < 0){
 			panacekY = 0;
 		} 
@@ -125,7 +124,7 @@ function priStiskuKlavesy (udalost){
 	// šipka dolů
 
  	if(udalost.key === "ArrowDown"){
- 		panacekY+= 10;
+ 		panacekY += 10;
 	if(panacekY + panacekVyska > window.innerHeight){
  	panacekY = window.innerHeight - panacekVyska; 		
 } 
@@ -134,18 +133,19 @@ function priStiskuKlavesy (udalost){
 }
 
 	// panáčka umistíme na nově vypočítanou pozici
-
-	panacekX = Math.round(window.innerWidth / 2 - panacekSirka/2);
-	panacekY = Math.round(window.innerHeight / 2 - panacekVyska/2);
-
+	umistiPanacka();
 
 	// otestujeme kolizi panáčka s mincí
 
-
-
+	otestujKolizi();
 
 // fuknce pro otestování kolize panáčka s mincí
 function otestujKolizi() {
-	// musíme to napsat :)
+
+	if(!(panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekDelka < minceY 
+		|| minceY + MinceDelka < panacekY )){
+	pocetMinci +=1;
+}
+	novaMince();
 }
 }
