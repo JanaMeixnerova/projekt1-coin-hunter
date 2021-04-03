@@ -94,9 +94,9 @@ function priStiskuKlavesy (udalost){
 
 	// šipka vlevo
 	if (udalost.key === 'ArrowLeft'){
-		panacekX  -= 10;
+		panacekX -=10;
 		if(panacekX < 0){
-			panacekX = 0; 
+		panacekX = 0; 
 		}
 	panacek.src = "obrazky/panacek-vlevo.png"; 	
 	}
@@ -111,11 +111,10 @@ function priStiskuKlavesy (udalost){
 	panacek.src = "obrazky/panacek-vpravo.png"; 	
 	}
 
-
 	// šipka nahoru
 
 	if(udalost.key === "ArrowUp"){
-		panacekY -= 10;
+		panacekY-= 10;
 		if(panacekY < 0){
 			panacekY = 0;
 		} 
@@ -126,7 +125,7 @@ function priStiskuKlavesy (udalost){
 	// šipka dolů
 
  	if(udalost.key === "ArrowDown"){
- 		panacekY += 10;
+ 		panacekY+= 10;
 	if(panacekY + panacekVyska > window.innerHeight){
  	panacekY = window.innerHeight - panacekVyska; 		
 } 
