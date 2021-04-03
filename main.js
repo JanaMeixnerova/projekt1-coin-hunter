@@ -9,6 +9,9 @@ let hrajeHudba = false;
 
 // tato funkce se spustí při načtení stránky
 // tj. ve chvíli, kdy je načtené komplet HTML, CSS a všechny obrázky a zvuky
+
+
+
 function priNacteniStranky() {
 
 	// do globálních proměnných si uložíme odkaz na objekty panáčka a mince,
@@ -55,6 +58,9 @@ function priNacteniStranky() {
 
 // funkce, která umístí panáčka na jeho souřadnice
 // tj. nastaví jeho style.left a style.top na hodnoty panacekX, panacekY
+
+
+
 function umistiPanacka() {
 	
 	panacek.style.left = panacekX + "px";
@@ -74,7 +80,9 @@ function novaMince() {
 // do proměnné "udalost" se vloží objekt s parametry události¨
 // kde lze najít např. i vlastnost "key",
 // která obsahuje znak stisknuté klávesy
-function priStiskuKlavesy(udalost) {
+
+
+function priStiskuKlavesy (udalost){
 
 	//zapneme hudbu
 
@@ -86,7 +94,7 @@ function priStiskuKlavesy(udalost) {
 
 	// šipka vlevo
 	if (udalost.key === 'ArrowLeft'){
-		panacekX -= 10;
+		panacekX  -= 10;
 		if(panacekX < 0){
 			panacekX = 0; 
 		}
@@ -96,7 +104,7 @@ function priStiskuKlavesy(udalost) {
 	// šipka vpravo
 	if (udalost.key === 'ArrowRight'){
 		panacekX += 10;
-		if(panacekX+ panacekSirka > window.innerWidth)){
+		if(panacekX+ panacekSirka > window.innerWidth){
 			panacekX= window.inneWidth - panacekSirka;
 		}
 
@@ -107,7 +115,7 @@ function priStiskuKlavesy(udalost) {
 	// šipka nahoru
 
 	if(udalost.key === "ArrowUp"){
-		panacekY -= 10
+		panacekY -= 10;
 		if(panacekY < 0){
 			panacekY = 0;
 		} 
@@ -117,25 +125,28 @@ function priStiskuKlavesy(udalost) {
 
 	// šipka dolů
 
+ 	if(udalost.key === "ArrowDown"){
+ 		panacekY += 10;
+	if(panacekY + panacekVyska > window.innerHeight){
+ 	panacekY = window.innerHeight - panacekVyska; 		
+} 
+	panacek.src = "obrazky/panacek.png"	
 
-	if(udalost.key === "ArrowDown"){
-		panacekY += 10
-		if(panacekY < 0){
-			panacekY = 0;
-		} 
-	panacek.src = "obrazky/panacek-dolu.png"	
-	}
-
+}
 
 	// panáčka umistíme na nově vypočítanou pozici
+
+	panacekX = Math.round(window.innerWidth / 2 - panacekSirka/2);
+	panacekY = Math.round(window.innerHeight / 2 - panacekVyska/2);
 
 
 	// otestujeme kolizi panáčka s mincí
 
 
-}
+
 
 // fuknce pro otestování kolize panáčka s mincí
 function otestujKolizi() {
 	// musíme to napsat :)
+}
 }
