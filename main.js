@@ -144,6 +144,7 @@ function otestujKolizi() {
 
 	if(!(panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekDelka < minceY 
 		|| minceY + MinceDelka < panacekY )){
+			
 	pocetMinci +=1;
 }
 	novaMince();
