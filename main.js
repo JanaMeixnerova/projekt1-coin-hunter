@@ -140,13 +140,30 @@ function priStiskuKlavesy (udalost){
 	otestujKolizi();
 
 // fuknce pro otestování kolize panáčka s mincí
+
 function otestujKolizi() {
 
-	if(!(panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekDelka < minceY 
-		|| minceY + MinceDelka < panacekY )){
-			
+	if(!(panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || 
+		panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY )){
+			document.querySelector("#hudba").pause();
+			document.querySelector("#zvukMince").play();
+			document.querySelector("#hudba").play();
+
+		navyseniScore();
+		novaMince();	
+}	
+function navyseniScore(){
 	pocetMinci +=1;
+	if (pocetMinci<5){
+	console.log("Uz jsi jich lapil hodne,ale jeste jsi nevyhral ");
+	}
+	else if(pocetMinci){
+		document.querySelector("#hudba").pause();
+        document.querySelector("#zvukFanfara").play();
+		console.log("Vyhral jsi");
+	}
+	
+
 }
-	novaMince();
 }
 }
